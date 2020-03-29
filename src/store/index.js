@@ -6,24 +6,29 @@ import VueAxios from 'vue-axios'
 Vue.use(Vuex)
 Vue.use(VueAxios, axios)
 
+
 export default new Vuex.Store({
     state: {
-       results: [],
-       query: ''
-    },
-    actions: {
-      getResult(query, {commit}) {
+    movies: [], 
+    query: ''
+  },
+  actions: {
+    getResult({ commit }, query) {
         axios.get('https://api.themoviedb.org/3/search/movie?api_key=c9a79dde14786842e9de1b34cd607c36&query=' + query)
-        .then(response => { this.results = response.data.results })
-        console.log(query)
-        .then(results => {
-            commit('SET_RESULTS', results)
+        .then(r => r.data.results)
+        .then(movies => {
+        commit('SET_RESULT', movies)
+        //commit('updateQuery', query)
         })
-      }
-    },
-    mutations: {
-        SET_RESULTS (state, results) {
-            state.results = results
-      }
     }
-});
+  },
+  mutations: {
+    SET_RESULT (state, movies) {
+      state.movies = movies
+    },
+    /*updateQuery (state, query) {
+        state.query = query
+    }*/
+  }
+})
+
