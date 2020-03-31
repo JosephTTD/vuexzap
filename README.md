@@ -25,5 +25,7 @@ npm run lint
 npm run test
 ```
 
+![](xoxo.gif)
+
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
