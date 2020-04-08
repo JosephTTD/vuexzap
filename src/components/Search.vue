@@ -13,15 +13,15 @@
      <p id="display-txt" style="">{{movie.title}}</p> <span class="rating">{{movie.vote_average}} out of 10 </span><span id="ov-sm">{{ movie.overview }}</span>
      <div class="modal slide" :id="'demo' + movie.id" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
         <div class="modal-dialog slideLeft" role="document">
-            <div class="modal-content">
+            <div class="modal-content" style="background: url('http://image.tmdb.org/t/p/w500/ +  movie.backdrop_path')">
       <div class="modal-body">
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true"><img width="30px" src="../assets/close.svg"></span>
                     </button>
                     <div class="row">
-                        <div class="col-md-5">
-                            <img v-bind:src="'http://image.tmdb.org/t/p/w500/' +  movie.backdrop_path" width='100%' style="object-fit: cover; height: 500px; border-radius: 15px;" @error="imgUrlAltBg">
-                        </div><span class="col-md-1"></span>
+                        <div class="col-md-6">
+                            <img v-bind:src="'http://image.tmdb.org/t/p/w500/' +  movie.poster_path" class="movie-back" width='100%'  @error="imgUrlAltBg">
+                        </div>
                         <div class="col-md-6" style="">
                             <h2 style="text-align: left; font-weight: bold;">{{movie.title}}</h2><br>
                             <p>Popularity: {{movie.popularity}}%</p>
@@ -98,6 +98,12 @@ body {
     -o-transition: all 3s ease-in-out;
     transition: all  3s ease-in-out;
 }
+.movie-back {
+  object-fit: cover; 
+  height: 500px; 
+  border-radius: 15px;
+}
+
 #bar  {
   background:transparent;
   border: none;

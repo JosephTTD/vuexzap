@@ -29,7 +29,7 @@ export default {
     border: none !important;
     border-radius: 0px; 
     height: 100vh; 
-    overflow: hidden;
+    overflow-x: hidden;
     color: #fff;
     background: #ffbc6c;
     padding: 4%
@@ -80,4 +80,28 @@ export default {
 	}
 }
 
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #000;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+@media (max-width: 700px) {
+	.movie-back {
+		height: 310px;
+	}
+}
 </style>
